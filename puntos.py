@@ -1,54 +1,57 @@
 from mostrar import clear_console
+from numero import number
+from file import write_messages, read_messages
 
-
-def suma(historial):
+def suma():
     clear_console()
-    num1 = int (input('ingrese número 1: '))
-    num2 = int(input('ingrese número 2: '))
+    num1 = number(1)
+    num2 = number(2)
     sum = num1 + num2
     print(f'La suma de {num1} + {num2} es = "{sum}".')
     histo = (f'La suma de {num1} + {num2} es = "{sum}".')
-    historial.append(histo)
+    write_messages(histo)
    
-
-def subtraction(historial):
+def subtraction():
     clear_console()
-    num1 = int (input('ingrese número 1: '))
-    num2 = int(input('ingrese número 2: '))
+    num1 = number(1)
+    num2 = number(2)
     res = num1 - num2
     print(f'La resta de {num1} - {num2} es = "{res}".')
     histo = (f'La resta de {num1} - {num2} es = "{res}".')
-    historial.append(histo)
+    write_messages(histo)
     
-    
-def multiply(historial):
+def multiply():
     clear_console()
-    num1 = int (input('ingrese número 1: '))
-    num2 = int(input('ingrese número 2: '))
+    num1 = number(1)
+    num2 = number(2)
     multi = num1 * num2
     print(f'La multiplicación de {num1} * {num2} es = "{multi}".')
     histo = (f'La multiplicación de {num1} * {num2} es = "{multi}".')
-    historial.append(histo)
+    write_messages(histo)
     
-
-def split(historial):
+def split():
     clear_console()
-    num1 = int (input('ingrese número 1: '))
-    num2 = int(input('ingrese número 2: '))
-    divide = num1 / num2
+    num1 = number(1)
+    num2 = number(2)
+    try:
+        divide = num1 / num2            
+    except ZeroDivisionError:
+        print('Error no se puede calcular la división con el denominador 0')
+        return 0.0
+        #raise Exception('Tiene que ser distinto de cero')
     print(f'La división de {num1} / {num2} es = "{divide}".')
     histo = (f'La división de {num1} / {num2} es = "{divide}".')
-    historial.append(histo)
+    write_messages(histo)
+
+
+def operations():
+    clear_console()
+    #if not historial:
+    #    print('No hay historial disponible, elija otra opción.')
+    #    return
+    read_messages()
     
 
 
-def operations(historial):
-    clear_console()
-    if not historial:
-        print('No hay historial disponible, elija otra opción.')
-        return
-
-    for i in historial:
-        
-        print(f'{i}')
+      
         
